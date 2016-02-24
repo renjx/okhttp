@@ -417,9 +417,10 @@ public final class Cookie {
     if (s.endsWith(".")) {
       throw new IllegalArgumentException();
     }
-    if (s.startsWith(".")) {
-      s = s.substring(1);
-    }
+    // why delete this first dot. it will cause CookieHandler can't find a cookie from domain
+    //if (s.startsWith(".")) {
+    //  s = s.substring(1);
+    //}
     String canonicalDomain = domainToAscii(s);
     if (canonicalDomain == null) {
       throw new IllegalArgumentException();
